@@ -23,7 +23,7 @@ function App() {
   }, []);
 
   return (
-    <main className="w-full bg-gray-200 min-h-screen px-3 py-4 gap-8 flex flex-col items-start">
+    <main className="w-full  min-h-screen px-3 py-4 gap-8 flex flex-col items-start">
       <Navbar />
       {loading ? (
         <div className="container mx-auto p-4">

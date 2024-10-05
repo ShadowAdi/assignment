@@ -7,39 +7,39 @@ import { Circles } from "react-loader-spinner";
 const PostAll = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
+
   const getAllPosts = async () => {
-    setLoading(true);
+    setLoading(true); // Set loading to true before making the API call
     await axios
       .get("https://jsonplaceholder.typicode.com/posts")
       .then((res) => {
-        setPosts(res.data);
+        setPosts(res.data); // Store API response in posts state
       })
       .catch((err) => console.log(err))
-      .finally(setLoading(false));
+      .finally(() => setLoading(false)); // Set loading to false after completion (correct usage)
   };
+
   useEffect(() => {
-    getAllPosts();
+    getAllPosts(); 
   }, []);
 
   return (
-    <main className="flex bg-gray-200 text-black pb-4 flex-col w-full gap-8 px-4">
+    <main className="flex text-black pb-4 flex-col w-full gap-8 px-4">
       <Navbar />
       {loading ? (
         <div className="container mx-auto p-4">
-          {
-            <Circles
-              height="80"
-              width="80"
-              color="#000"
-              ariaLabel="bars-loading"
-              wrapperStyle={{}}
-              wrapperClass=""
-              visible={loading}
-            />
-          }
+          <Circles
+            height="80"
+            width="80"
+            color="#000"
+            ariaLabel="bars-loading"
+            wrapperStyle={{}}
+            wrapperClass=""
+            visible={loading}
+          />
         </div>
       ) : (
-        <div className="grid gap-3 mx-auto sm:grid-cols-1 md:grid-cols-4 justify-center   ">
+        <div className="grid gap-3 mx-auto sm:grid-cols-1 md:grid-cols-4 justify-center">
           {posts.map((post, i) => {
             return <PostCard key={i} post={post} />;
           })}
