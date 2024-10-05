@@ -40,7 +40,7 @@ function App() {
           }
         </div>
       ) : (
-        <div className="grid gap-3 mx-auto sm:grid-cols-1 md:grid-cols-4 justify-center   ">
+        <div className="grid gap-3 mx-auto  sm:grid-cols-1 md:grid-cols-4 justify-between   ">
           {users.map((user, i) => {
             return <Card key={i} user={user} />;
           })}

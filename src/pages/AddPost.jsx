@@ -17,8 +17,8 @@ const AddPost = () => {
         title,
         body,
       })
-      .then((res) => {
-        navigate("/post/"+res?.data?.id);
+      .then(() => {
+        navigate("/");
       })
       .catch((err) => console.log(err));
   };
